@@ -16,84 +16,92 @@ body{
 /* HERO */
 .hero{
   text-align:center;
-  padding:60px 20px;
+  padding:35px 15px;
 }
 .hero img{
-  width:150px;
+  width:130px;
 }
 .hero h1{
-  margin:20px 0 10px;
-  font-size:32px;
+  margin:15px 0 8px;
+  font-size:28px;
 }
 .hero p{
+  margin:0;
   color:#94a3b8;
 }
 
 /* LINEPLATE */
 .lineplate{
   text-align:center;
-  padding:30px 20px;
+  padding:15px;
 }
 .lineplate img{
-  max-width:90%;
-  border-radius:10px;
+  max-width:85%;
+  border-radius:8px;
 }
 
 /* SERVICES */
 .services{
-  padding:40px 20px;
-  max-width:900px;
+  padding:25px 15px;
+  max-width:850px;
   margin:auto;
 }
 .services h2{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
+
+/* SERVICE CARD */
 .card{
   background:#020617;
-  padding:20px;
-  margin-bottom:15px;
-  border-radius:10px;
+  padding:15px;
+  margin-bottom:10px;
+  border-radius:8px;
   cursor:pointer;
 }
 .card b{
-  font-size:18px;
+  font-size:17px;
 }
 .card span{
   display:block;
-  margin-top:5px;
+  margin-top:4px;
+  font-size:14px;
   color:#94a3b8;
 }
+
+/* DETAILS */
 .details{
   display:none;
   margin-top:10px;
+  font-size:14px;
   color:#cbd5f5;
 }
 .details textarea{
   width:100%;
-  margin-top:10px;
-  padding:10px;
-  border-radius:6px;
+  margin-top:8px;
+  padding:8px;
+  border-radius:5px;
   border:none;
+  font-size:14px;
 }
 .details a{
   display:inline-block;
-  margin-top:10px;
+  margin-top:8px;
   color:#38bdf8;
   text-decoration:none;
+  font-size:14px;
 }
 
 /* FOOTER */
 .footer{
   text-align:center;
-  padding:30px;
+  padding:15px;
   background:#020617;
-  margin-top:40px;
 }
 .footer a{
   color:#38bdf8;
   text-decoration:none;
-  font-size:18px;
+  font-size:16px;
 }
 </style>
 </head>
@@ -104,8 +112,116 @@ body{
 <div class="hero">
   <img src="logo.png" alt="Logo">
   <h1>Welcome to Business With Us</h1>
-  <p>We provide professional digital services</p>
+  <p>Professional digital services for modern needs</p>
 </div>
+
+<!-- LINEPLATE -->
+<div class="lineplate">
+  <img src="lineplate.jpg" alt="Lineplate">
+</div>
+
+<!-- SERVICES -->
+<div class="services">
+  <h2>Our Services</h2>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Writing</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Professional content and writing services.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Video Editing</b>
+    <span>Click to know more</span>
+    <div class="details">
+      High quality video editing solutions.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Web Developing</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Clean and modern website development.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Music Making</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Custom music and audio production.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>OSINT</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Open-source intelligence research services.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>PCB Design</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Professional PCB designing services.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Digital Forensic</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Digital forensic investigation & analysis.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Market Analysis</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Data-driven market research & insights.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <a href="https://www.instagram.com/businesswith.us" target="_blank">
+    Visit our Instagram
+  </a>
+</div>
+
+<script>
+function toggle(card){
+  let d = card.querySelector(".details");
+  d.style.display = d.style.display==="block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html></div>
 
 <!-- LINEPLATE -->
 <div class="lineplate">
