@@ -2,110 +2,218 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Business With Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background:#0f172a;
   color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
 }
-.box{
-  width:320px;
+
+/* HERO */
+.hero{
   text-align:center;
-  background:#020617;
-  padding:20px;
+  padding:60px 20px;
+}
+.hero img{
+  width:150px;
+}
+.hero h1{
+  margin:20px 0 10px;
+  font-size:32px;
+}
+.hero p{
+  color:#94a3b8;
+}
+
+/* LINEPLATE */
+.lineplate{
+  text-align:center;
+  padding:30px 20px;
+}
+.lineplate img{
+  max-width:90%;
   border-radius:10px;
 }
-.box img{
-  width:120px;
+
+/* SERVICES */
+.services{
+  padding:40px 20px;
+  max-width:900px;
+  margin:auto;
 }
-input{
-  width:100%;
-  padding:10px;
-  margin-top:15px;
-  border-radius:5px;
-  border:none;
+.services h2{
+  text-align:center;
+  margin-bottom:30px;
 }
-button{
-  width:100%;
-  padding:10px;
-  margin-top:15px;
-  border:none;
-  border-radius:5px;
-  background:#2563eb;
-  color:white;
-  font-size:16px;
+.card{
+  background:#020617;
+  padding:20px;
+  margin-bottom:15px;
+  border-radius:10px;
   cursor:pointer;
 }
-.line{
+.card b{
+  font-size:18px;
+}
+.card span{
+  display:block;
+  margin-top:5px;
+  color:#94a3b8;
+}
+.details{
+  display:none;
+  margin-top:10px;
+  color:#cbd5f5;
+}
+.details textarea{
   width:100%;
-  margin-top:15px;
+  margin-top:10px;
+  padding:10px;
+  border-radius:6px;
+  border:none;
+}
+.details a{
+  display:inline-block;
+  margin-top:10px;
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  margin-top:40px;
+}
+.footer a{
+  color:#38bdf8;
+  text-decoration:none;
+  font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-  <img src="assets/logo.png" alt="logo">
+<!-- HERO -->
+<div class="hero">
+  <img src="logo.png" alt="Logo">
+  <h1>Welcome to Business With Us</h1>
+  <p>We provide professional digital services</p>
+</div>
 
-  <p>Welcome to Business With Us</p>
+<!-- LINEPLATE -->
+<div class="lineplate">
+  <img src="lineplate.jpg" alt="Lineplate">
+</div>
 
-  <img src="assets/lineplate.png" class="line">
+<!-- SERVICES -->
+<div class="services">
+  <h2>Our Services</h2>
 
-  <input type="text" id="phone" placeholder="Enter phone number">
+  <div class="card" onclick="toggle(this)">
+    <b>Writing</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Professional writing services for your business.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
 
-  <button onclick="login()">Login</button>
+  <div class="card" onclick="toggle(this)">
+    <b>Video Editing</b>
+    <span>Click to know more</span>
+    <div class="details">
+      High quality video editing solutions.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Web Developing</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Clean and modern website development.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Music Making</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Custom music and audio production.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>OSINT</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Open-source intelligence research services.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>PCB Design</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Professional PCB designing services.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Digital Forensic</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Digital forensic investigation & analysis.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggle(this)">
+    <b>Market Analysis</b>
+    <span>Click to know more</span>
+    <div class="details">
+      Data-driven market research & analysis.
+      <textarea placeholder="Want to hire us? Write here..."></textarea>
+      <a href="https://www.instagram.com/businesswith.us" target="_blank">Message us on Instagram</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <a href="https://www.instagram.com/businesswith.us" target="_blank">
+    Visit our Instagram
+  </a>
 </div>
 
 <script>
-function login(){
-  const phone = document.getElementById("phone").value;
-  if(phone.length < 10){
-    alert("Enter valid phone number");
-    return;
-  }
-  window.location.href = "dashboard.html";
+function toggle(card){
+  let d = card.querySelector(".details");
+  d.style.display = d.style.display==="block" ? "none" : "block";
 }
 </script>
 
 </body>
-</html>  margin:10px 0;
-  border-radius:8px;
-  cursor:pointer;
-}
-.hire-card b { font-size:18px; }
-
-/* JOB PAGE */
-#jobPage { display:none; }
-textarea {
-  width:100%;
-  padding:10px;
-  border-radius:6px;
-  border:none;
-  margin-top:10px;
-}
-button {
-  cursor:pointer;
-}
-</style>
-</head>
-<body>
-
-<!-- HOME -->
-<div id="home">
-  <img src="logo.png" class="logo" alt="Logo">
-  <h2>Welcome to Business With Us</h2>
-  <img src="lineplate.jpg" class="lineplate" alt="Lineplate">
-  <div class="login-box">
-    <input type="tel" id="phoneInput" placeholder="Enter phone number">
-    <button id="loginBtn">Login</button>
-  </div>
+</html>  </div>
 </div>
 
 <!-- DASHBOARD -->
