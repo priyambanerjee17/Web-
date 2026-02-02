@@ -8,12 +8,11 @@
 body{
   background:#0b1020;
   color:white;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   margin:0;
   padding:0;
 }
 
-/* HOME */
 #home{
   min-height:100vh;
   display:flex;
@@ -24,17 +23,8 @@ body{
   padding:20px;
 }
 
-.logo{
-  width:140px;
-  margin-bottom:20px;
-}
-
-.lineplate{
-  width:90%;
-  max-width:350px;
-  margin:25px 0;
-}
-
+.logo{width:140px;margin-bottom:20px;}
+.lineplate{width:90%;max-width:350px;margin:25px 0;}
 .login-box{
   background:#11172f;
   padding:20px;
@@ -42,7 +32,6 @@ body{
   width:100%;
   max-width:320px;
 }
-
 .login-box input{
   width:100%;
   padding:12px;
@@ -51,7 +40,6 @@ body{
   border-radius:6px;
   outline:none;
 }
-
 .login-box button{
   width:100%;
   padding:12px;
@@ -63,7 +51,6 @@ body{
   cursor:pointer;
 }
 
-/* DASHBOARD */
 #dashboard{
   display:none;
   min-height:100vh;
@@ -83,7 +70,6 @@ body{
 </head>
 <body>
 
-<!-- HOME PAGE -->
 <div id="home">
   <img src="logo.png" class="logo" alt="Logo">
   <h2>Welcome to Business With Us</h2>
@@ -93,19 +79,40 @@ body{
 
   <div class="login-box">
     <input type="tel" id="phoneInput" placeholder="Enter phone number">
-    <button type="button" onclick="login()">Login</button>
+    <button type="button" id="loginBtn">Login</button>
   </div>
 </div>
 
-<!-- DASHBOARD -->
 <div id="dashboard">
   <h1>Dashboard Loaded!</h1>
   <p>Login successful. This is a placeholder page.</p>
-  <button onclick="logout()">Logout</button>
+  <button id="logoutBtn">Logout</button>
 </div>
 
 <script>
-function login(){
+// ===== LOGIN =====
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+loginBtn.addEventListener("click", ()=>{
+  const phone = document.getElementById("phoneInput").value.trim();
+  if(phone.length<10){
+    alert("Enter a valid phone number");
+    return;
+  }
+  document.getElementById("home").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+});
+
+logoutBtn.addEventListener("click", ()=>{
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("home").style.display = "flex";
+  document.getElementById("phoneInput").value = "";
+});
+</script>
+
+</body>
+</html>function login(){
   const phone = document.getElementById("phoneInput").value.trim();
   if(phone.length < 10){
     alert("Enter a valid phone number");
