@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Business With Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:#ffffff;
+}
+
+.hidden{ display:none; }
+button{ cursor:pointer; }
+
+/* ===== HOME PAGE ===== */
+#home{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:30px 15px;
+  text-align:center;
+}
+
+#home .logo{
+  width:120px;
+}
+
+#home h1{
+  font-size:26px;
+}
+
+#home p{
+  color:#cbd5f5;
+}
+
+#home input{
+  width:230px;
+  padding:10px;
+  border-radius:6px;
+  border:none;
+}
+
+.login-btn{
+  padding:10px 25px;
+  background:#2563eb;
+  border:none;
+  border-radius:6px;
+  color:white;
+  font-size:15px;
+}
+
+/* lineplate image */
+.lineplate{
+  margin-top:40px;
+  width:90%;
+  max-width:420px;
+  border-radius:12px;
+  opacity:0.95;
+}
+
+/* ===== DASHBOARD LAYOUT ===== */
+#dashboard{
+  min-height:100vh;
+}
+
+.topbar{
+  height:55px;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 15px;
+}
+
+.menu{
+  font-size:24px;
+  cursor:pointer;
+}
+
+.profile{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#334155;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:fixed;
+  top:55px;
+  left:-220px;
+  width:220px;
+  height:100%;
+  background:#020617;
+  padding:20px;
+  transition:0.3s;
+}
+
+.sidebar a{
+  display:block;
+  margin:15px 0;
+  color:#cbd5f5;
+  text-decoration:none;
+  font-size:16px;
+}
+
+.sidebar a.active{
+  font-weight:bold;
+  color:#ffffff;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content{
+  padding:30px 20px;
+}
+
+/* ===== DASHBOARD CARD ===== */
+.dashboard-card{
+  background:#020617;
+  padding:35px;
+  border-radius:14px;
+  text-align:center;
+}
+
+.dashboard-card p{
+  margin-top:10px;
+  color:#94a3b8;
+}
+
+.dashboard-card button{
+  margin-top:20px;
+  padding:12px 22px;
+  background:#ec4899;
+  border:none;
+  border-radius:8px;
+  color:white;
+}
+
+/* ===== HIRE SECTION ===== */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.service{
+  background:#020617;
+  padding:22px;
+  border-radius:14px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.service:hover{
+  transform:translateY(-4px);
+}
+
+.service p{
+  margin-top:8px;
+  color:#94a3b8;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-box{
+  background:#020617;
+  padding:25px;
+  border-radius:14px;
+  width:320px;
+}
+
+.modal-box textarea{
+  width:100%;
+  height:90px;
+  margin-top:12px;
+  border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HOME ===== -->
+<div id="home">
+  <img src="logo.png" class="logo" alt="logo">
+
+  <h1>Welcome to Business With Us</h1>
+  <p>We build, analyze & create — together</p>
+
+  <input type="text" placeholder="Enter phone number">
+  <button class="login-btn" onclick="login()">Login</button>
+
+  <!-- Lineplate -->
+  <img src="lineplate.jpg" class="lineplate" alt="lineplate">
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="dashboard" class="hidden">
+
+  <div class="topbar">
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <div class="profile"></div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <a href="#" class="active" onclick="showDashboard()">Dashboard</a>
+    <a href="#" onclick="showHire()">Hire</a>
+    <a href="#">Profile</a>
+  </div>
+
+  <div class="content" id="mainContent"></div>
+
+</div>
+
+<!-- ===== MESSAGE MODAL ===== -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <h3>Send us a message</h3>
+    <textarea placeholder="Write your message here..."></textarea>
+    <button class="login-btn" style="margin-top:12px;">Send</button>
+  </div>
+</div>
+
+<script>
+function login(){
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+  showDashboard();
+}
+
+function toggleMenu(){
+  const sb = document.getElementById("sidebar");
+  sb.style.left = sb.style.left === "0px" ? "-220px" : "0px";
+}
+
+function setActive(index){
+  document.querySelectorAll(".sidebar a").forEach((a,i)=>{
+    a.classList.toggle("active", i===index);
+  });
+}
+
+function showDashboard(){
+  setActive(0);
+  document.getElementById("mainContent").innerHTML = `
+    <div class="dashboard-card">
+      <h2>Business Dashboard</h2>
+      <p>Visit our official Instagram page</p>
+      <button onclick="window.open('https://www.instagram.com/businesswith.us','_blank')">
+        Open Instagram
+      </button>
+    </div>
+  `;
+}
+
+function showHire(){
+  setActive(1);
+  const services=[
+    "Writing","Video Editing","Web Developing","Music Making",
+    "OSINT","PCB Design","Digital Forensic","Market Analysis"
+  ];
+
+  let html='<div class="services">';
+  services.forEach(s=>{
+    html+=`
+      <div class="service" onclick="openService('${s}')">
+        <h3>${s}</h3>
+        <p>Click to know more</p>
+      </div>
+    `;
+  });
+  html+='</div>';
+
+  document.getElementById("mainContent").innerHTML = html;
+}
+
+function openService(name){
+  document.getElementById("mainContent").innerHTML = `
+    <h2>${name}</h2>
+    <p style="margin-top:10px;color:#cbd5f5;">
+      Professional ${name} service for real business needs.
+    </p>
+    <br>
+    <button class="login-btn" onclick="openModal()">Want to hire us?</button>
+  `;
+}
+
+function openModal(){
+  document.getElementById("modal").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
