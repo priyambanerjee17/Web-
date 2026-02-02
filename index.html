@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Business With Us</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business With Us</title>
 
 <style>
 /* ===== RESET ===== */
@@ -11,63 +11,62 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
 }
-
 body{
-  background:#0f172a;
-  color:#ffffff;
+  background:#0b1020;
+  color:white;
 }
 
-button{ cursor:pointer; }
-
-/* ===== HOME ===== */
+/* ===== HOME PAGE ===== */
 #home{
   min-height:100vh;
+  width:100%;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:16px;
-  padding:30px 15px;
   text-align:center;
+  padding:20px;
 }
 
 .logo{
-  width:120px;
+  width:140px;
+  margin-bottom:20px;
 }
 
-#home h1{
-  font-size:26px;
+.lineplate{
+  width:90%;
+  max-width:350px;
+  margin:25px 0;
 }
 
-#home p{
-  color:#cbd5f5;
+.login-box{
+  background:#11172f;
+  padding:20px;
+  border-radius:10px;
+  width:100%;
+  max-width:320px;
 }
 
-#home input{
-  width:230px;
-  padding:10px;
-  border-radius:6px;
+.login-box input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
   border:none;
+  border-radius:6px;
+  outline:none;
 }
 
-.login-btn{
-  padding:10px 25px;
+.login-box button{
+  width:100%;
+  padding:12px;
   background:#2563eb;
   border:none;
-  border-radius:6px;
   color:white;
-  font-size:15px;
-}
-
-/* lineplate */
-.lineplate{
-  margin-top:40px;
-  width:90%;
-  max-width:420px;
-  border-radius:12px;
-  opacity:0.95;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
 }
 
 /* ===== DASHBOARD ===== */
@@ -76,9 +75,10 @@ button{ cursor:pointer; }
   min-height:100vh;
 }
 
+/* TOP BAR */
 .topbar{
   height:55px;
-  background:#020617;
+  background:#11172f;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -87,25 +87,167 @@ button{ cursor:pointer; }
 
 .menu{
   font-size:24px;
+  cursor:pointer;
 }
 
 .profile{
-  width:36px;
-  height:36px;
+  width:35px;
+  height:35px;
   border-radius:50%;
-  background:#334155;
+  background:#2563eb;
 }
 
-/* ===== SIDEBAR ===== */
+/* SIDEBAR */
 .sidebar{
   position:fixed;
   top:55px;
   left:-220px;
-  width:220px;
+  width:200px;
   height:100%;
-  background:#020617;
-  padding:20px;
+  background:#0f1530;
+  padding:15px;
   transition:0.3s;
+}
+
+.sidebar a{
+  display:block;
+  padding:10px;
+  color:white;
+  text-decoration:none;
+}
+
+.sidebar a.active{
+  font-weight:bold;
+  background:#2563eb;
+  border-radius:5px;
+}
+
+/* CONTENT */
+.content{
+  padding:20px;
+}
+
+/* HIRE SECTION */
+.hire-card{
+  background:#11172f;
+  padding:15px;
+  margin:15px 0;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hire-card b{
+  font-size:18px;
+}
+
+/* JOB PAGE */
+#jobPage{
+  display:none;
+}
+textarea{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HOME ================= -->
+<div id="home">
+  <img src="logo.png" class="logo">
+  <h2>Welcome to Business With Us</h2>
+  <p>Please login to continue</p>
+
+  <img src="lineplate.jpg" class="lineplate">
+
+  <div class="login-box">
+    <input type="tel" placeholder="Phone number">
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div id="dashboard">
+
+  <div class="topbar">
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <div class="profile"></div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <a class="active" onclick="showDashboard()">Dashboard</a>
+    <a onclick="showHire()">Hire</a>
+    <a>Profile</a>
+  </div>
+
+  <div class="content" id="mainContent">
+    <h2>Dashboard</h2>
+    <p>Click below to open Instagram</p>
+    <button onclick="window.open('https://instagram.com','_blank')">
+      Open Instagram
+    </button>
+  </div>
+
+  <!-- JOB PAGE -->
+  <div class="content" id="jobPage">
+    <h2 id="jobTitle"></h2>
+    <p>This is our professional service.</p>
+    <textarea placeholder="Want to hire us? Write message"></textarea>
+  </div>
+
+</div>
+
+<script>
+function login(){
+  document.getElementById("home").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+}
+
+function toggleMenu(){
+  let s=document.getElementById("sidebar");
+  s.style.left = s.style.left=="0px" ? "-220px" : "0px";
+}
+
+function showDashboard(){
+  document.getElementById("jobPage").style.display="none";
+  document.getElementById("mainContent").style.display="block";
+}
+
+function showHire(){
+  document.getElementById("mainContent").innerHTML=`
+    <h2>Hire Us</h2>
+    ${hireItem("Writing")}
+    ${hireItem("Video Editing")}
+    ${hireItem("Web Developing")}
+    ${hireItem("Music Making")}
+    ${hireItem("OSINT")}
+    ${hireItem("PCB Design")}
+    ${hireItem("Digital Forensic")}
+    ${hireItem("Market Analysis")}
+  `;
+}
+
+function hireItem(name){
+  return `
+  <div class="hire-card" onclick="openJob('${name}')">
+    <b>${name}</b><br>
+    Click to know more
+  </div>`;
+}
+
+function openJob(name){
+  document.getElementById("mainContent").style.display="none";
+  document.getElementById("jobPage").style.display="block";
+  document.getElementById("jobTitle").innerText=name;
+}
+</script>
+
+</body>
+</html>  transition:0.3s;
 }
 
 .sidebar a{
