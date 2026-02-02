@@ -8,11 +8,11 @@
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 body{background:#0b1020;color:white;}
-button{cursor:pointer;}
 
-/* HOME */
+/* HOME PAGE */
 #home{
   min-height:100vh;
+  width:100%;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -23,42 +23,63 @@ button{cursor:pointer;}
 
 .logo{width:140px;margin-bottom:20px;}
 .lineplate{width:90%;max-width:350px;margin:25px 0;}
-.login-box{background:#11172f;padding:20px;border-radius:10px;width:100%;max-width:320px;}
-.login-box input{width:100%;padding:12px;margin:10px 0;border:none;border-radius:6px;outline:none;}
-.login-box button{width:100%;padding:12px;background:#2563eb;border:none;color:white;border-radius:6px;font-size:16px;}
 
-/* DASHBOARD */
-#dashboard{display:none;min-height:100vh;}
-.topbar{height:55px;background:#11172f;display:flex;align-items:center;justify-content:space-between;padding:0 15px;}
-.menu{font-size:24px;cursor:pointer;}
-.profile{width:35px;height:35px;border-radius:50%;background:#2563eb;}
+.login-box{
+  background:#11172f;
+  padding:20px;
+  border-radius:10px;
+  width:100%;
+  max-width:320px;
+}
 
-/* SIDEBAR */
-.sidebar{position:fixed;top:55px;left:-220px;width:200px;height:100%;background:#0f1530;padding:15px;transition:0.3s;}
-.sidebar a{display:block;padding:10px;color:white;text-decoration:none;}
-.sidebar a.active{font-weight:bold;background:#2563eb;border-radius:5px;}
+.login-box input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:6px;
+  outline:none;
+}
 
-/* CONTENT */
-.content{padding:20px;}
+.login-box button{
+  width:100%;
+  padding:12px;
+  background:#2563eb;
+  border:none;
+  color:white;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
 
-/* HIRE SECTION */
-.hire-card{background:#11172f;padding:15px;margin:15px 0;border-radius:8px;cursor:pointer;}
-.hire-card b{font-size:18px;}
+/* DASHBOARD (dummy) */
+#dashboard{
+  display:none;
+  min-height:100vh;
+  padding:30px;
+  text-align:center;
+}
 
-/* JOB PAGE */
-#jobPage{display:none;}
-textarea{width:100%;padding:10px;border-radius:6px;border:none;margin-top:10px;}
+#dashboard h1{margin-bottom:20px;}
+#dashboard button{
+  padding:12px 25px;
+  background:#ec4899;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
 </style>
 </head>
 <body>
 
 <!-- HOME -->
 <div id="home">
-  <img src="logo.png" class="logo">
+  <img src="logo.png" class="logo" alt="Logo">
   <h2>Welcome to Business With Us</h2>
   <p>Please login to continue</p>
 
-  <img src="lineplate.jpg" class="lineplate">
+  <img src="lineplate.jpg" class="lineplate" alt="Lineplate">
 
   <div class="login-box">
     <input type="tel" id="phoneInput" placeholder="Enter phone number">
@@ -66,46 +87,33 @@ textarea{width:100%;padding:10px;border-radius:6px;border:none;margin-top:10px;}
   </div>
 </div>
 
-<!-- DASHBOARD -->
+<!-- DUMMY DASHBOARD -->
 <div id="dashboard">
-
-  <div class="topbar">
-    <div class="menu" onclick="toggleMenu()">☰</div>
-    <div class="profile"></div>
-  </div>
-
-  <div class="sidebar" id="sidebar">
-    <a class="active" onclick="showDashboard()">Dashboard</a>
-    <a onclick="showHire()">Hire</a>
-    <a>Profile</a>
-  </div>
-
-  <div class="content" id="mainContent">
-    <h2>Dashboard</h2>
-    <p>Click below to open Instagram</p>
-    <button onclick="window.open('https://www.instagram.com/businesswith.us','_blank')">Open Instagram</button>
-  </div>
-
-  <!-- JOB PAGE -->
-  <div class="content" id="jobPage">
-    <h2 id="jobTitle"></h2>
-    <p>This is our professional service.</p>
-    <textarea placeholder="Want to hire us? Write message"></textarea>
-  </div>
-
+  <h1>Dashboard Loaded!</h1>
+  <p>Login successful. This is a placeholder page.</p>
+  <button onclick="logout()">Logout</button>
 </div>
 
 <script>
 function login(){
   let phone = document.getElementById("phoneInput").value.trim();
-  if(phone.length<10){
+  if(phone.length < 10){
     alert("Enter a valid phone number");
     return;
   }
-  document.getElementById("home").style.display="none";
-  document.getElementById("dashboard").style.display="block";
-  showDashboard();
+  document.getElementById("home").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
 }
+
+function logout(){
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("home").style.display = "flex";
+  document.getElementById("phoneInput").value = "";
+}
+</script>
+
+</body>
+</html>}
 
 function toggleMenu(){
   let s=document.getElementById("sidebar");
